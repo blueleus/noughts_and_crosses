@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import random
+
 OPTIONS = ('|X|', '|O|')
 
 
@@ -23,9 +25,18 @@ def display_board(board):
         print(display)
 
 
+def is_winner(turn):
+    return False
+
+
 def run():
     board = BOARD
-    display_board(board)
+    turn = random.choice(OPTIONS)
+    winner = False
+    while not winner:
+        display_board(board)
+        coordinates = str(input('it\'s the turn of ' + turn + ': '))
+        winner = is_winner(turn)
 
 
 if __name__ == '__main__':
